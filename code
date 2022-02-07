@@ -1,0 +1,17 @@
+a = int(input('How much money do you have? '))
+b = int(input('How much money do you want? '))
+a1 = a
+b1 = b
+if a > b:
+  print('ur stoopid')
+else:
+  t1me = 0
+  while a1 < b1:
+    if a1 < 50000000:
+      c = 1.02
+    else:
+      c = 1.01
+    a1 = a1*c
+    t1me = t1me+1
+t1me = t1me*1.29166667
+print('It will take ' + str(round(t1me)) + ' days, to earn ' + str(b-a) + ' coins')
