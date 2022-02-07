@@ -1,4 +1,4 @@
-# SB-Bank-Interest
+# SkyBlock Bank Interest Calculator ( SBI )
 
 **What is this code?**
 
