@@ -1,9 +1,10 @@
+from datetime import datetime
 a = int(input('How much money do you have? '))
 b = int(input('How much money do you want? '))
 a1 = a
 b1 = b
 if a > b:
-  print('ur stoopid')
+  print('no')
 else:
   t1me = 0
   while a1 < b1:
@@ -14,4 +15,8 @@ else:
     a1 = a1*c
     t1me = t1me+1
 t1me = t1me*1.29166667
-print('It will take ' + str(round(t1me)) + ' days, to earn ' + str(b-a) + ' coins')
+now = datetime.now()
+timestamp = datetime.timestamp(now)
+timestamp = timestamp+(86400*t1me)
+dt_object = datetime.fromtimestamp(timestamp)
+print('It will take ' + str(round(t1me)) + ' days, to earn ' + str(b-a) + ' coins, goal reached on', str(dt_object).split(' ')[0])
