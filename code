@@ -1,22 +1,52 @@
 from datetime import datetime
-a = int(input('How much money do you have? '))
-b = int(input('How much money do you want? '))
-a1 = a
-b1 = b
-if a > b:
-  print('no')
+
+try:
+ a = int(input('How much money do you have? '))
+except:
+ a = int(input('Please enter a whole number. How much money do you have? '))
+try:
+ b = int(input('How much money do you want? '))
+except:
+ b = int(input('Please enter a whole number. How much money do you want? '))
+q = input('Do you want a detailed answer? y/n. ') 
+
+a1 = int(a)
+b1 = int(b)
+t1me = 0
+
+if q == 'y':
+  if a > b:
+    print('*insert sad face here*')
+  else:
+    while a1 < b1:
+      if a1 < 50000000:
+        c = 1.02
+      else:
+        c = 1.01
+      a1 = a1*c
+      t1me = t1me+1
+      print('New balance:',round(a1))
+      print('Amount of times given interest:',round(t1me))
+      print('Day count:',round(t1me*1.29166667))
+      print('')
+  t1me = t1me*1.29166667
+elif q == 'n':
+  if a > b:
+    print('*insert sad face here*')
+  else:
+    while a1 < b1:
+      if a1 < 50000000:
+        c = 1.02
+      else:
+        c = 1.01
+      a1 = a1*c
+      t1me = t1me+1
+  t1me = t1me*1.29166667
 else:
-  t1me = 0
-  while a1 < b1:
-    if a1 < 50000000:
-      c = 1.02
-    else:
-      c = 1.01
-    a1 = a1*c
-    t1me = t1me+1
-t1me = t1me*1.29166667
+  quit('You may only type \'y\' or \'n\'')
+
 now = datetime.now()
 timestamp = datetime.timestamp(now)
 timestamp = timestamp+(86400*t1me)
 dt_object = datetime.fromtimestamp(timestamp)
-print('It will take ' + str(round(t1me)) + ' days, to earn ' + str(b-a) + ' coins, goal reached on', str(dt_object).split(' ')[0])
+print('It will take ' + str(round(t1me)) + ' days to earn ' + str(b-a) + ' coins, goal will be reached on', str(dt_object).split(' ')[0])
